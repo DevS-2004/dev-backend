@@ -164,8 +164,8 @@ const logoutUser  = asyncHandler( async(req, res) => {
     await User.findByIdAndUpdate(
         req.user._id,
         {
-            $set:{
-                refreshToken: undefined
+            $unset:{
+                refreshToken: 1
             }
         },
         {
@@ -175,7 +175,9 @@ const logoutUser  = asyncHandler( async(req, res) => {
 
     const options = {
         httpOnly: true,
-        secure: true
+        secure: true 
+        // Ensures that the cookie is only sent over HTTPS.
+        // The browser will refuse to send the cookie over HTTP (non-secure) connections.
     }
 
     return res
@@ -295,7 +297,7 @@ const updateUserAvatar = asyncHandler( async(req,res)=>{
     }
 
 
-    await User.findByIdAndUpdate(
+    const user = await User.findByIdAndUpdate(
         req.user?._id,
         {
             $set:{
@@ -305,6 +307,11 @@ const updateUserAvatar = asyncHandler( async(req,res)=>{
         {new :true}
     ).select("-password")
 
+    return res
+    .status(200)
+    .json(
+        new ApiResponse(200, user, "Avatar image updated successfully !")
+    )
 })
 
 const updateUserCoverImage = asyncHandler( async(req,res)=>{
@@ -333,7 +340,7 @@ const updateUserCoverImage = asyncHandler( async(req,res)=>{
     return res
     .status(200)
     .json(
-        new ApiResponse(200, user, "Avatar image updated successfully !")
+        new ApiResponse(200, user, "Cover image updated successfully !")
     )
 })
 
@@ -353,15 +360,15 @@ const getUserChannelProfile = asyncHandler(async(req, res)=>{
         },
         {
             $lookup:{
-                from:"Subscription",
+                from:"subscriptions",
                 localField:"_id",
                 foreignField:"channel", 
-                as:"subscriber"
+                as:"subscribers"
             }
         },
         {
             $lookup:{
-                from:"Subscription",
+                from:"subscriptions",
                 localField:"_id",
                 foreignField:"subscriber",
                 as:"subscribedTo"
