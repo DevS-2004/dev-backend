@@ -29,52 +29,62 @@ dev-backend/
 ├── package.json # NPM dependencies and scripts
 └── package-lock.json # Lock file for dependency versions
 
+yaml
+Copy
+Edit
+
 ---
 
 ## ⚙️ Tech Stack
 
 - **Node.js**
 - **Express.js**
-- **MongoDB** (or any DB set in `src/db`)
-- **Mongoose** (assumed based on structure)
-- **Prettier** for code formatting
-- **Dotenv** for managing environment variables
+- **MongoDB** (configured in `src/db`)
+- **Mongoose**
+- **Prettier** (code formatting)
+- **Dotenv** (environment configuration)
 
 ---
 
 ## 🚀 Getting Started
 
-1. **Clone the repository**
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/DevS-2004/dev-backend.git
 cd dev-backend
-
+2. Install Dependencies
+bash
+Copy
+Edit
 npm install
+3. Configure Environment Variables
+Create a .env file in the root directory:
 
+env
+Copy
+Edit
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
-
 📌 Available Scripts
-npm start - Start the server
+bash
+Copy
+Edit
+npm start       # Start the server
+npm run dev     # Start in development mode (if using nodemon)
+npm run lint    # Format code with Prettier (if configured)
+📁 Folder Responsibilities
+controllers/ – Handles route logic
 
-npm run dev - Start server in development mode (if using nodemon)
+models/ – Mongoose schemas
 
-npm run lint - Format code using Prettier (if configured)
+routes/ – API endpoints
 
-📁 Example API Folder Roles
-controllers/: Handles request logic
+middlewares/ – Auth, validation, error handlers
 
-models/: Mongoose models for MongoDB collections
-
-routes/: API endpoint definitions
-
-middlewares/: Auth, error handling, etc.
-
-utils/: Reusable helpers like token generation or input validation
+utils/ – Helpers like token generation, validators
 
 🧑‍💻 Author
 DevS-2004
 GitHub Profile
-```
