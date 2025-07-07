@@ -6,32 +6,23 @@ This is the backend service for a full-stack application built with **Node.js**,
 
 ## 📁 Project Structure
 
-dev-backend/
-│
-├── node_modules/ # Installed dependencies
-├── public/ # Static assets (if any)
-├── src/
-│ ├── controllers/ # Route controller logic
-│ ├── db/ # DB connection setup (e.g., MongoDB or other)
-│ ├── middlewares/ # Custom Express middlewares
-│ ├── models/ # Mongoose or ORM models
-│ ├── routes/ # All API routes
-│ ├── utils/ # Utility functions/helpers
-│ ├── app.js # Express app setup
-│ ├── constants.js # Constant values used across app
-│ └── index.js # Server entry point
-│
-├── .env # Environment variables
-├── .gitignore # Git ignored files
-├── .prettierrc # Code formatter config
-├── .prettierignore # Files ignored by Prettier
-├── notes.md # Project notes or planning
-├── package.json # NPM dependencies and scripts
-└── package-lock.json # Lock file for dependency versions
+## 📁 Folder Structure
 
-yaml
-Copy
-Edit
+- **Array/** – Advanced array methods like `map`, `filter`, `reduce`, `forEach`, etc.
+- **API/** – Practice with APIs, JSON handling, and AJAX-style requests.
+- **DOM/** – DOM selection, manipulation, and interaction with HTML elements.
+- **Projects/**
+  - **DOM_Projects/** – Mini projects using DOM (e.g., color switcher, circle spot, etc.)
+  - **Events/** – Event handling examples (`onclick`, `addEventListener`, etc.)
+  - **fun_with_js/** – Explorations like lexical scope, closures, and more.
+  - **passwordGen.js** – Standalone JavaScript password generator script.
+- **File_Handling _node.js** – Node.js file system usage.
+- **notes.txt** / **notes2.txt** – Personal JavaScript notes in text format.
+- **Other JS Files** – Individual concepts:
+  - `Hoisting.js`, `IIFE.js`, `scope.js`, `prototype.js`, etc.
+  - `class.js`, `getter_setter.js`, `optionalChainingOperator.js`, etc.
+  - `promise.js`, `import.js`, `highOrderLoops.js`, etc.
+
 
 ---
 
@@ -84,6 +75,7 @@ routes/ – API endpoints
 middlewares/ – Auth, validation, error handlers
 
 utils/ – Helpers like token generation, validators
+```
 
 🧑‍💻 Author
 DevS-2004
